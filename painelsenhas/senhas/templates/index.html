@@ -1,0 +1,23 @@
+<!-- experiencein/perfis/templates/index.html --> 
+{% load staticfiles %}
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Senhas</title>
+    </head> 
+    <body>
+        <h1>Senhas que estão atualmente 'na fila':</h1>
+        {% if senhas %}
+            <ul>
+                {% for senha in senhas %}
+                    <li>
+                        <p>{{ senha.senha }} / {{ senha.hora_data }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum Perfil encontrado.</p>
+        {% endif %}
+    </body> 
+</html>
