@@ -12,5 +12,8 @@ def index(request):
 
 def exibir(request):
     
-    # senha = Senha()
-    return render(request, 'perfil.html')
+    data = Senha.objects.all()
+    senha = {
+        "senhas": data
+    }
+    return render(request, 'senhas.html', senha)

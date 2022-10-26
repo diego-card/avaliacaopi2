@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Senhas</title>
+    </head> 
+    <body>
+        <h1>Todas as senhas que existem:</h1>
+        {% if senhas %}
+            <ul>
+                {% for senha in senhas %}
+                    <li>
+                        <p>Senha: <b>{{ senha.senha }}</b>. Emitido: <b>{{ senha.hora_data }}</b> Tipo de senha: <b>{{ senha.tipo.nome }}</b>. Categoria: <b>{{  senha.categoria.nome }}</b>. Status: <b>{{ senha.status.nome }}</b>.</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum Perfil encontrado.</p>
+        {% endif %}
+    </body> 
+</html>

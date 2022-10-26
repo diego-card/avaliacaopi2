@@ -14,8 +14,8 @@ class StatusSenha(models.Model):
     nome = models.CharField(max_length=45, null=False)
 
 class Senha(models.Model):
-    senha = models.CharField(max_length=255, null=False)
-    hora_data = models.CharField(max_length=255, null=False)
+    senha = models.IntegerField(null=False)
+    hora_data = models.DateTimeField(auto_now_add=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     tipo = models.ForeignKey(PainelTipo, on_delete=models.CASCADE)
     status = models.ForeignKey(StatusSenha, on_delete=models.CASCADE)

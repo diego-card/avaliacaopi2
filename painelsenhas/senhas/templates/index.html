@@ -1,5 +1,3 @@
-<!-- experiencein/perfis/templates/index.html --> 
-{% load staticfiles %}
 <!DOCTYPE html> 
 <html lang="pt-br"> 
     <head> 
@@ -11,9 +9,12 @@
         {% if senhas %}
             <ul>
                 {% for senha in senhas %}
-                    <li>
-                        <p>{{ senha.senha }} / {{ senha.hora_data }}</p>
-                    </li>
+                    {% if senha.status.nome == 'Na fila'  %}
+                        <li>
+                            <p>Senha: <b>{{ senha.senha }}</b>. Emitido: <b>{{ senha.hora_data }}</b> Tipo de senha: <b>{{ senha.tipo.nome }}</b>. Categoria: <b>{{  senha.categoria.nome }}</b></p>
+                        </li>
+                    {% else %}
+                    {% endif %}
                 {% endfor %}
             </ul>
         {% else %}
